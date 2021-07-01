@@ -1,17 +1,17 @@
-import { User } from "firebase";
+import firebase from "firebase/app";
 import { FC, createContext, useEffect, useState } from "react";
 import { auth } from "../utils/firebase";
 
 type AuthContextProps = {
-  currentUser: User | null | undefined;
+  currentUser: firebase.User | null | undefined;
 };
 
 const AuthContext = createContext<AuthContextProps>({ currentUser: undefined });
 
 const AuthProvider: FC = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState<User | null | undefined>(
-    undefined
-  );
+  const [currentUser, setCurrentUser] = useState<
+    firebase.User | null | undefined
+  >(undefined);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
