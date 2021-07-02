@@ -58,7 +58,7 @@ const Signin: FC = () => {
         <div className=" pt-6 pb-12">
           <p className="text-sm">
             アカウントをお持ちでありませんか？{" "}
-            <Link href="/signin">
+            <Link href="/signup">
               <a className="text-blue-400">サインアップ</a>
             </Link>
           </p>
