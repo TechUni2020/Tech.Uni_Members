@@ -1,12 +1,17 @@
 import { useEffect, FC, useState } from "react";
 import { useRouter } from "next/router";
-import Head from "next/head";
-
 import { auth } from "../utils/firebase";
 
 const Home: FC = (props: any) => {
   const router = useRouter();
   const [currentUser, setCurrentUser] = useState<null | object>(null);
+  const [name, setName] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (auth.currentUser != null) {
+      setName(auth.currentUser.displayName);
+    }
+  });
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -25,8 +30,10 @@ const Home: FC = (props: any) => {
 
   return (
     <div>
-      <pre>{currentUser && JSON.stringify(currentUser, null, 4)}</pre>
-      <button onClick={logOut}>Logout</button>
+      <h1>Hello {name} 👋</h1>
+      <button onClick={logOut} className="btn btn-danger">
+        Logout
+      </button>
     </div>
   );
 };
