@@ -1,6 +1,6 @@
-import React, { FC, useCallback, useState, useEffect } from "react";
-import firebase from "firebase";
-import Router from "next/router";
+import React, { FC, useContext, useState, useEffect } from "react";
+import { AuthContext } from "../auth/AuthProvider";
+import { useRouter } from "next/router";
 import { GoogleIcon } from "../components/Icon/GoogleIcon";
 import { Button } from "../components/shared/Button";
 import Link from "next/link";
@@ -11,12 +11,12 @@ import { githubProvider, googleProvider } from "../auth/AuthMethods";
 import socialMediaAuth from "../auth/SocialMediaAuth";
 
 const Signin: FC = () => {
-  const auth = firebase.auth();
+  const router = useRouter();
+  const { currentUser } = useContext(AuthContext);
+
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      user && Router.push("/");
-    });
-  }, []);
+    currentUser && router.push("/");
+  }, [currentUser]);
 
   const handleOnClick = async (provider) => {
     const res = await socialMediaAuth(provider);
@@ -25,7 +25,6 @@ const Signin: FC = () => {
 
   return (
     <div className="w-screen h-screen bg-white font-family-karla">
-      {/* 入会方法側・ログイン */}
       <div className="grid place-items-center mt-12 md:pt-0 md:px-24 lg:px-32">
         <Image src="/icon.png" width={250} height={200} />
         <p className="text-center text-xl font-bold mt-6">

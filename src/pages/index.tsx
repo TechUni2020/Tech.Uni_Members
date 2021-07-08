@@ -1,15 +1,21 @@
 import { useEffect, FC, useState } from "react";
 import { useRouter } from "next/router";
 import { auth } from "../utils/firebase";
+import { Layout } from "../components/shared/Layout";
+import { Button } from "../components/shared/Button";
+import Link from "next/link";
 
 const Home: FC = (props: any) => {
   const router = useRouter();
   const [currentUser, setCurrentUser] = useState<null | object>(null);
   const [name, setName] = useState<string | null>(null);
+  const [photoURL, setImage] = useState<string | null>(null);
 
   useEffect(() => {
     if (auth.currentUser != null) {
       setName(auth.currentUser.displayName);
+      setImage(auth.currentUser.photoURL);
+      setCurrentUser(auth);
     }
   });
 
@@ -29,12 +35,22 @@ const Home: FC = (props: any) => {
   };
 
   return (
-    <div>
-      <h1>Hello {name} 👋</h1>
-      <button onClick={logOut} className="btn btn-danger">
-        Logout
-      </button>
-    </div>
+    <Layout
+      left="icon"
+      right={[
+        <Button
+          key="write memo"
+          variant="solid-blue"
+          linkProps={{ href: "/memos/new" }}
+          className="px-4 h-10"
+        >
+          メモを書く
+        </Button>,
+        "profile",
+      ]}
+    >
+      {/* Bodyの処理 */}
+    </Layout>
   );
 };
 
