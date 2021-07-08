@@ -14,8 +14,25 @@ const AuthProvider: FC = ({ children }) => {
   >(undefined);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(async (user) => {
       setCurrentUser(user);
+      if (user) {
+        // ログイン済みのユーザー情報があるかをチェック
+        const userDoc = await firebase
+          .firestore()
+          .doc(`user/${user.uid}`)
+          .get();
+        if (!userDoc.exists) {
+          //docがなければ作る
+          userDoc.ref.set({
+            screen_name: user.uid,
+            display_name: user.displayName,
+            created_at: firebase.firestore.FieldValue.serverTimestamp(),
+            email: user.email,
+            icon_url: "",
+          });
+        }
+      }
     });
   }, []);
 
