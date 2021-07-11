@@ -10,7 +10,6 @@ import { auth } from "../../utils/firebase";
 import { Layout } from "../../components/shared/Layout";
 import { Button } from "../../components/shared/Button";
 import { Avatar } from "../../components/shared/Avatar";
-import Link from "next/link";
 import { GithubIcon } from "../../components/Icon/GithubIcon";
 import { TwitterIcon } from "../../components/Icon/TwitterIcon";
 import { InstagramIcon } from "../../components/Icon/InstagramIcon";

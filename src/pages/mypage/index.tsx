@@ -7,8 +7,8 @@ import "firebase/storage";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { useDownloadURL } from "react-firebase-hooks/storage";
-import { Layout } from "../components/shared/Layout";
-import { List } from "../components/shared/List";
+import { Layout } from "../../components/shared/Layout";
+import { List } from "../../components/shared/List";
 
 const MyPage: FC = (props: any) => {
   const router = useRouter();
@@ -45,7 +45,7 @@ const MyPage: FC = (props: any) => {
         <List
           title="全般"
           items={[
-            { label: "プロフィール", href: "/mypage" },
+            { label: "プロフィール", href: "/mypage/edit" },
             { label: "アカウントの連携", href: "/mypage" },
             { label: "データの削除", href: "/mypage" },
           ]}
