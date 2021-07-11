@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import { useEffect, FC, useState } from "react";
 import { useRouter } from "next/router";
 import firebase from "firebase/app";
@@ -63,9 +64,15 @@ const UsersUserId: FC = (props: any) => {
             </div>
             <span className="">{user?.discription}</span>
             <div className="flex space-x-4">
-              <GithubIcon iconColor="gray" />
-              <TwitterIcon iconColor="gray" />
-              <InstagramIcon iconColor="gray" />
+              <a href={"https://github.com/" + user?.github + "/"}>
+                <GithubIcon iconColor="gray" />
+              </a>
+              <a href={"https://twitter.com/" + user?.twitter + "/"}>
+                <TwitterIcon iconColor="gray" />
+              </a>
+              <a href={"https://www.instagram.com/" + user?.instagram + "/"}>
+                <InstagramIcon iconColor="gray" />
+              </a>
             </div>
           </div>
         </div>
