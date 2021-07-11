@@ -32,7 +32,7 @@ export type HeaderProps = {
 
 export const Header = memo<HeaderProps>((props) => {
   return (
-    <header className="flex items-center">
+    <header className="flex justify-between items-center  px-8 shadow-md">
       <Left left={props.left} />
 
       <div className="flex flex-1 justify-center px-2">
@@ -182,7 +182,10 @@ const UserMenu: VFC = () => {
                         </Link>
                       </div>
                       <div className="grid relative">
-                        <Link href="/settings/memo">
+                        <Link
+                          //メンバープロフィールを同じように表示したいのでuidで表示
+                          href={`/users/${uid}`}
+                        >
                           <a className="flex items-center py-2.5 px-4 hover:bg-gray-100 focus-visible:bg-gray-100 dark:hover:bg-gray-700 dark:focus-visible:bg-gray-700 focus:outline-none">
                             <div className="flex flex-shrink-0 justify-center items-center">
                               <CogIcon className="w-7 h-7" />
