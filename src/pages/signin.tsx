@@ -38,7 +38,7 @@ const Signin: FC = () => {
           }}
         >
           <div className="flex">
-            <GithubIcon className="mr-3" />
+            <GithubIcon className="mr-3 fill-current text-white" />
             <span>Sign in with Github</span>
           </div>
         </Button>

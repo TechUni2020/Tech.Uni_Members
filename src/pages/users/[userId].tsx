@@ -10,6 +10,9 @@ import { Layout } from "../../components/shared/Layout";
 import { Button } from "../../components/shared/Button";
 import { Avatar } from "../../components/shared/Avatar";
 import Link from "next/link";
+import { GithubIcon } from "../../components/Icon/GithubIcon";
+import { TwitterIcon } from "../../components/Icon/TwitterIcon";
+import { InstagramIcon } from "../../components/Icon/InstagramIcon";
 
 const UsersUserId: FC = (props: any) => {
   const router = useRouter();
@@ -36,20 +39,34 @@ const UsersUserId: FC = (props: any) => {
           linkProps={{ href: "/memos/new" }}
           className="px-4 h-10"
         >
-          メモを書く
+          編集
         </Button>,
         "profile",
       ]}
     >
-      <div className="space-y-7">
+      <div className="space-y-7 ">
         <div className="flex items-center space-x-4">
           <Avatar
             alt={user?.display_name}
             src={image_url ? image_url : default_url}
-            className="w-16 h-16"
+            className="w-24 h-24 "
           />
-          <div className="flex flex-col">
-            <span className="font-bold">{user?.display_name}</span>
+          <div className="flex flex-col space-y-4">
+            <div className="flex space-x-4">
+              <span className="text-2xl font-bold">{user?.display_name}</span>
+              <div className="flex rounded-full px-3 h-8 bg-blue-500 items-center">
+                <span className="text-white">{user?.role}</span>
+              </div>
+              <div className="flex rounded-full px-3 h-8 bg-blue-500 items-center">
+                <span className="text-white">{user?.class}</span>
+              </div>
+            </div>
+            <span className="">{user?.discription}</span>
+            <div className="flex space-x-4">
+              <GithubIcon className="fill-current text-gray-600" />
+              <TwitterIcon className="fill-current text-gray-600" />
+              <InstagramIcon className="fill-current text-gray-600" />
+            </div>
           </div>
         </div>
         <div className="flex items-center space-x-4">
@@ -62,54 +79,6 @@ const UsersUserId: FC = (props: any) => {
             <span className="font-bold">{user?.display_name}</span>
           </div>
         </div>
-        <div className="flex items-center space-x-4">
-          <Avatar
-            alt={user?.display_name}
-            src={image_url ? image_url : default_url}
-            className="w-16 h-16"
-          />
-          <div className="flex flex-col">
-            <span className="font-bold">{user?.display_name}</span>
-          </div>
-        </div>
-        <div className="flex items-center space-x-4">
-          <Avatar
-            alt={user?.display_name}
-            src={image_url ? image_url : default_url}
-            className="w-16 h-16"
-          />
-          <div className="flex flex-col">
-            <span className="font-bold">{user?.display_name}</span>
-          </div>
-        </div>
-        <div className="flex items-center space-x-4">
-          <Avatar
-            alt={user?.display_name}
-            src={image_url ? image_url : default_url}
-            className="w-16 h-16"
-          />
-          <div className="flex flex-col">
-            <span className="font-bold">{user?.display_name}</span>
-          </div>
-        </div>
-        <div className="flex items-center space-x-4">
-          <Avatar
-            alt={user?.display_name}
-            src={image_url ? image_url : default_url}
-            className="w-16 h-16"
-          />
-          <div className="flex flex-col">
-            <span className="font-bold">{user?.display_name}</span>
-          </div>
-        </div>
-
-        <Link href="/search">
-          <a className="block">
-            {/* <InputSearch placeholder="メモを検索する" /> */}
-          </a>
-        </Link>
-
-        {/* <UserNoteList userId={user.id} /> */}
       </div>
     </Layout>
   );

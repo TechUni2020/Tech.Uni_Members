@@ -4,7 +4,7 @@ import { Header } from "../layouts/Header";
 
 type Props = HeaderProps & {
   children: ReactNode;
-  isHeaderNarrow?: boolean;
+  // isHeaderNarrow?: boolean;
 };
 
 export const Layout: VFC<Props> = (props) => {
