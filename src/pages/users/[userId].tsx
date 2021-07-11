@@ -61,6 +61,13 @@ const UsersUserId: FC = (props: any) => {
               <div className="flex rounded-full px-3 h-8 bg-blue-500 items-center">
                 <span className="text-white">{user?.class}</span>
               </div>
+              <Button
+                variant="solid-gray"
+                linkProps={{ href: "/mypage" }}
+                className="px-4 h-10"
+              >
+                設定
+              </Button>
             </div>
             <span className="">{user?.discription}</span>
             <div className="flex space-x-4">
@@ -74,16 +81,6 @@ const UsersUserId: FC = (props: any) => {
                 <InstagramIcon iconColor="gray" />
               </a>
             </div>
-          </div>
-        </div>
-        <div className="flex items-center space-x-4">
-          <Avatar
-            alt={user?.display_name}
-            src={image_url ? image_url : default_url}
-            className="w-16 h-16"
-          />
-          <div className="flex flex-col">
-            <span className="font-bold">{user?.display_name}</span>
           </div>
         </div>
       </div>

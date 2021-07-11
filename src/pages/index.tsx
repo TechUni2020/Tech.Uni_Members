@@ -25,15 +25,6 @@ const Home: FC = (props: any) => {
     });
   }, []);
 
-  const logOut = async () => {
-    try {
-      await auth.signOut();
-      router.push("/signin");
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-
   return (
     <Layout
       left="icon"
