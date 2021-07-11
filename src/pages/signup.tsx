@@ -77,7 +77,7 @@ const Signup: FC = () => {
               }}
             >
               <div className="flex">
-                <GithubIcon className="mr-3 fill-current text-white" />
+                <GithubIcon iconColor="white" className="mr-3" />
                 <span>Sign up with Github</span>
               </div>
             </Button>

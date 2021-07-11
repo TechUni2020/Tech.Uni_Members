@@ -63,9 +63,9 @@ const UsersUserId: FC = (props: any) => {
             </div>
             <span className="">{user?.discription}</span>
             <div className="flex space-x-4">
-              <GithubIcon className="fill-current text-gray-600" />
-              <TwitterIcon className="fill-current text-gray-600" />
-              <InstagramIcon className="fill-current text-gray-600" />
+              <GithubIcon iconColor="gray" />
+              <TwitterIcon iconColor="gray" />
+              <InstagramIcon iconColor="gray" />
             </div>
           </div>
         </div>
