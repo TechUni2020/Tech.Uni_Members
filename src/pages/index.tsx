@@ -1,11 +1,11 @@
-import { useEffect, FC, useState } from "react";
+import { useEffect, useState } from "react";
+import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { auth } from "../utils/firebase";
 import { Layout } from "../components/shared/Layout";
 import { Button } from "../components/shared/Button";
-import Link from "next/link";
 
-const Home: FC = (props: any) => {
+const Home: NextPage = () => {
   const router = useRouter();
   const [currentUser, setCurrentUser] = useState<null | object>(null);
   const [name, setName] = useState<string | null>(null);
@@ -24,15 +24,6 @@ const Home: FC = (props: any) => {
       user ? setCurrentUser(user) : router.push("/signin");
     });
   }, []);
-
-  const logOut = async () => {
-    try {
-      await auth.signOut();
-      router.push("/signin");
-    } catch (error) {
-      alert(error.message);
-    }
-  };
 
   return (
     <Layout

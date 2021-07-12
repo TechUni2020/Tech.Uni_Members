@@ -4,13 +4,13 @@ import Router from "next/router";
 import { GoogleIcon } from "../components/Icon/GoogleIcon";
 import { Button } from "../components/shared/Button";
 import Link from "next/link";
-import Image from "next/image";
+import type { NextPage } from "next";
 import { GithubIcon } from "../components/Icon/GithubIcon";
 
 import { githubProvider, googleProvider } from "../auth/AuthMethods";
 import socialMediaAuth from "../auth/SocialMediaAuth";
 
-const Signup: FC = () => {
+const Signup: NextPage = () => {
   const auth = firebase.auth();
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -77,7 +77,7 @@ const Signup: FC = () => {
               }}
             >
               <div className="flex">
-                <GithubIcon className="mr-3" />
+                <GithubIcon iconColor="white" className="mr-3" />
                 <span>Sign up with Github</span>
               </div>
             </Button>

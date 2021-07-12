@@ -1,4 +1,5 @@
-import React, { FC, useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import type { NextPage } from "next";
 import { AuthContext } from "../auth/AuthProvider";
 import { useRouter } from "next/router";
 import { GoogleIcon } from "../components/Icon/GoogleIcon";
@@ -10,7 +11,7 @@ import { GithubIcon } from "../components/Icon/GithubIcon";
 import { githubProvider, googleProvider } from "../auth/AuthMethods";
 import socialMediaAuth from "../auth/SocialMediaAuth";
 
-const Signin: FC = () => {
+const Signin: NextPage = () => {
   const router = useRouter();
   const { currentUser } = useContext(AuthContext);
 
@@ -38,7 +39,7 @@ const Signin: FC = () => {
           }}
         >
           <div className="flex">
-            <GithubIcon className="mr-3" />
+            <GithubIcon iconColor="white" className="mr-3" />
             <span>Sign in with Github</span>
           </div>
         </Button>
