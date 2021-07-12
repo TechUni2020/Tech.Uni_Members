@@ -40,15 +40,6 @@ export const ProfileForm: VFC<ProfileFormProps> = (props) => {
     discription: Yup.string().required("メッセージは必須です。"),
   });
 
-  const [name, setName] = useState("");
-  const [id, setId] = useState("");
-  const [belongs, setBelongs] = useState("");
-  const [role, setRole] = useState("");
-  const [github, setGithub] = useState("");
-  const [twitter, setTwitter] = useState("");
-  const [instagram, setInstagram] = useState("");
-  const [discription, setDiscription] = useState("");
-
   return (
     <div>
       <div className="space-y-6 sm:space-y-8">
