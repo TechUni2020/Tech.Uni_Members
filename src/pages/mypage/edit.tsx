@@ -3,7 +3,7 @@ import { Layout } from "../../components/shared/Layout";
 import { ProfileForm } from "../../components/shared/ProfileForm";
 import { EXAMPLE_USER_01 } from "../../models/user";
 
-const SettingsQinUserEdit: NextPage = () => {
+const SettingsUserEdit: NextPage = () => {
   return (
     <Layout left="back">
       <div className="space-y-8">
@@ -14,4 +14,4 @@ const SettingsQinUserEdit: NextPage = () => {
   );
 };
 
-export default SettingsQinUserEdit;
+export default SettingsUserEdit;

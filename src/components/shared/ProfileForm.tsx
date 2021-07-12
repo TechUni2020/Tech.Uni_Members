@@ -27,6 +27,12 @@ export const ProfileForm: VFC<ProfileFormProps> = (props) => {
         </div>
         <Input name="name" label="名前" />
         <Input name="id" label="ユーザー名" prefix="@" />
+        <Input name="class" label="所属クラス" />
+        <Input name="role" label="幹部の担当" />
+        <Input name="github" label="Githubアカウント" />
+        <Input name="twitter" label="Twitterアカウント" />
+        <Input name="instagram" label="Instagramアカウント" />
+        <Input name="discription" label="コメント" />
       </div>
 
       <div className="mt-12 space-y-4">

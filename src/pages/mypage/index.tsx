@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @next/next/link-passhref */
-import { useEffect, FC, useState } from "react";
 import { useRouter } from "next/router";
+import type { NextPage } from "next";
 import firebase from "firebase/app";
 import "firebase/storage";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -10,7 +10,7 @@ import { useDownloadURL } from "react-firebase-hooks/storage";
 import { Layout } from "../../components/shared/Layout";
 import { List } from "../../components/shared/List";
 
-const MyPage: FC = (props: any) => {
+const MyPage: NextPage = () => {
   const router = useRouter();
   const [authUser, authLoading, authError] = useAuthState(firebase.auth());
   const uid = authUser?.uid;

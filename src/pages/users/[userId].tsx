@@ -1,12 +1,11 @@
 /* eslint-disable @next/next/link-passhref */
-import { useEffect, FC, useState } from "react";
+import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import firebase from "firebase/app";
 import "firebase/storage";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { useDownloadURL } from "react-firebase-hooks/storage";
-import { auth } from "../../utils/firebase";
 import { Layout } from "../../components/shared/Layout";
 import { Button } from "../../components/shared/Button";
 import { Avatar } from "../../components/shared/Avatar";
@@ -14,7 +13,7 @@ import { GithubIcon } from "../../components/Icon/GithubIcon";
 import { TwitterIcon } from "../../components/Icon/TwitterIcon";
 import { InstagramIcon } from "../../components/Icon/InstagramIcon";
 
-const UsersUserId: FC = (props: any) => {
+const UsersUserId: NextPage = () => {
   const router = useRouter();
   const [authUser, authLoading, authError] = useAuthState(firebase.auth());
   const uid = authUser?.uid;
