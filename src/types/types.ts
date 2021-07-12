@@ -2,7 +2,7 @@ export type UserType = {
   id: string;
   name: string;
   avatarUrl: string;
-  class: string;
+  belongs: string;
   role: string;
   github: string;
   twitter: string;
@@ -14,7 +14,7 @@ export type UserPutRequest =
   | UserType
   | Pick<UserType, "id" | "name">
   | Pick<UserType, "id" | "avatarUrl">
-  | Pick<UserType, "id" | "class">
+  | Pick<UserType, "id" | "belongs">
   | Pick<UserType, "id" | "role">
   | Pick<UserType, "id" | "github">
   | Pick<UserType, "id" | "twitter">

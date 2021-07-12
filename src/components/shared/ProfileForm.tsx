@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import type { ChangeEvent, FormEvent } from "react";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { Avatar } from "../../components/shared/Avatar";
 import type { VFC } from "react";
 import { Button } from "./Button";
@@ -19,14 +18,9 @@ export const ProfileForm: VFC<ProfileFormProps> = (props) => {
   const [authUser, authLoading, authError] = useAuthState(firebase.auth());
   const uid = authUser?.uid;
 
-  const [inputValue, setInputValue] = useState("");
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-
-  const handleOnSubmit = async (values) => {
+  const handleOnSubmit = async (values: any) => {
     await (uid && firebase.firestore().doc(`user/${uid}`)).update({
-      display_name: values.name,
+      name: values.name,
       id: values.id,
       belongs: values.belongs,
       role: values.role,
@@ -54,8 +48,6 @@ export const ProfileForm: VFC<ProfileFormProps> = (props) => {
   const [twitter, setTwitter] = useState("");
   const [instagram, setInstagram] = useState("");
   const [discription, setDiscription] = useState("");
-  const [value, setValue] = useState("");
-  const [keyword, setKeyword] = useState("");
 
   return (
     <div>
@@ -76,14 +68,14 @@ export const ProfileForm: VFC<ProfileFormProps> = (props) => {
         </div>
         <Formik
           initialValues={{
-            name: name,
-            id: id,
-            belongs: belongs,
-            role: role,
-            github: github,
-            twitter: twitter,
-            instagram: instagram,
-            discription: discription,
+            name: props.user.name,
+            id: props.user.id,
+            belongs: props.user.belongs,
+            role: props.user.role,
+            github: props.user.github,
+            twitter: props.user.twitter,
+            instagram: props.user.instagram,
+            discription: props.user.discription,
           }}
           onSubmit={(values) => handleOnSubmit(values)}
           validationSchema={validationSchema}

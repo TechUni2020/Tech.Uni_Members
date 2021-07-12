@@ -16,7 +16,7 @@ export const EXAMPLE_USER_01: UserType = {
   id: "shouhi",
   name: "翔陽",
   avatarUrl: "/mocks/avatar01.jpg",
-  class: "開発者",
+  belongs: "開発者",
   role: "代表",
   github: "shouhi",
   twitter: "shouhi_ide",

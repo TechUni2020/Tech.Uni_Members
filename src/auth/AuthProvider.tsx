@@ -25,10 +25,16 @@ const AuthProvider: FC = ({ children }) => {
         if (!userDoc.exists) {
           //docがなければ作る
           userDoc.ref.set({
-            screen_name: user.uid,
-            display_name: user.displayName,
+            name: user.displayName,
             created_at: firebase.firestore.FieldValue.serverTimestamp(),
             email: user.email,
+            id: "",
+            belongs: "",
+            role: "",
+            github: "",
+            twitter: "",
+            instagram: "",
+            discription: "",
             icon_url: "",
           });
         }

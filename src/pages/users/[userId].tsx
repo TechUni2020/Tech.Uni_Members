@@ -46,25 +46,29 @@ const UsersUserId: NextPage = () => {
       <div className="space-y-7 ">
         <div className="flex items-center space-x-4">
           <Avatar
-            alt={user?.display_name}
+            alt={user?.name}
             src={image_url ? image_url : default_url}
             className="w-24 h-24 "
           />
           <div className="flex flex-col space-y-4">
             <div className="flex space-x-4">
-              <span className="text-2xl font-bold">{user?.display_name}</span>
+              <span className="text-2xl font-bold ">{user?.name}</span>
               <div className="flex rounded-full px-3 h-8 bg-blue-500 items-center">
-                <span className="text-white">{user?.role}</span>
+                <span className="text-white w-10 h-10 leading-10 text-center">
+                  {user?.role}
+                </span>
               </div>
               <div className="flex rounded-full px-3 h-8 bg-blue-500 items-center">
-                <span className="text-white">{user?.class}</span>
+                <span className="text-white w-10 h-10 leading-10 text-center">
+                  {user?.belongs}
+                </span>
               </div>
               <Button
                 variant="solid-gray"
                 linkProps={{ href: "/mypage" }}
                 className="px-4 h-10"
               >
-                設定
+                <span className=" w-10 h-10 leading-10 text-center">設定</span>
               </Button>
             </div>
             <span className="">{user?.discription}</span>

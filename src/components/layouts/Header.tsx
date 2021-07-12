@@ -142,7 +142,7 @@ const UserMenu: VFC = () => {
             <>
               <Popover.Button className="rounded-full focus-visible:ring-2 focus-visible:ring-blue-400 focus:outline-none">
                 <Avatar
-                  alt={user?.display_name}
+                  alt={user?.name}
                   src={image_url ? image_url : default_url}
                   className={ICON_SIZE}
                 />
@@ -168,15 +168,17 @@ const UserMenu: VFC = () => {
                         <Link href="/settings/qin">
                           <a className="flex items-center p-4 hover:bg-gray-100 focus-visible:bg-gray-100 dark:hover:bg-gray-700 dark:focus-visible:bg-gray-700 focus:outline-none">
                             <Avatar
-                              alt={user?.display_name}
+                              alt={user?.name}
                               src={image_url ? image_url : default_url}
                               className="w-14 h-14"
                             />
                             <div className="ml-4">
                               <p className="text-base font-bold">
-                                {user?.display_name}
+                                {user?.name}
                               </p>
-                              <p className="text-sm text-gray-400">@shouhi</p>
+                              <p className="text-sm text-gray-400">
+                                @{user?.id}
+                              </p>
                             </div>
                           </a>
                         </Link>

@@ -10,7 +10,7 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 
 export const Input: VFC<InputProps> = (props) => {
   return (
-    <div className="block">
+    <div className="block mt-4">
       <label htmlFor={props.name}>
         <div className="block ml-4 text-sm font-bold text-gray-500">
           {props.label}
