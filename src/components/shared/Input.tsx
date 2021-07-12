@@ -3,8 +3,9 @@ import type { InputHTMLAttributes, VFC } from "react";
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
   name: string;
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   prefix?: string;
-  error?: string;
 };
 
 export const Input: VFC<InputProps> = (props) => {
@@ -23,6 +24,8 @@ export const Input: VFC<InputProps> = (props) => {
           <input
             type="text"
             id={props.name}
+            value={props.value}
+            onChange={(e) => props.onChange(e)}
             className={`py-6 pr-5 mt-0.5 w-full h-10 font-bold bg-gray-100 dark:bg-gray-700 rounded-full dark:focus:bg-gray-600 border-none focus:ring-2 focus:ring-blue-400 focus:outline-none ${
               props.prefix ? "pl-10" : "pl-5"
             }`}
@@ -31,9 +34,6 @@ export const Input: VFC<InputProps> = (props) => {
           />
         </div>
       </label>
-      {props.error ? (
-        <p className="mt-0.5 ml-4 text-sm text-red-500">{props.error}</p>
-      ) : null}
     </div>
   );
 };

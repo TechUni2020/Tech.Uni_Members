@@ -21,7 +21,17 @@ export const Layout: VFC<Props> = (props) => {
       >
         <Header {...headerProps} />
       </div>
-      <div className="pt-4 px-4 mx-auto w-full max-w-screen-sm">{children}</div>
+      <main className="pt-4 px-4 mx-auto w-full max-w-screen-sm">
+        {children}
+      </main>
+
+      <footer>
+        <div className="p-8">
+          <div className="text-gray-600 text-center">
+            <p>Tech.Uni org.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
