@@ -117,7 +117,7 @@ const UserMenu: VFC = () => {
   const [user] = useDocumentData(
     uid && firebase.firestore().doc(`user/${uid}`)
   );
-  const [image_url] = useDownloadURL(
+  const [avatarUrl] = useDownloadURL(
     uid && firebase.storage().ref(`user_icon/${uid}.png`)
   );
 
@@ -143,7 +143,7 @@ const UserMenu: VFC = () => {
               <Popover.Button className="rounded-full focus-visible:ring-2 focus-visible:ring-blue-400 focus:outline-none">
                 <Avatar
                   alt={user?.name}
-                  src={image_url ? image_url : default_url}
+                  src={avatarUrl ? avatarUrl : default_url}
                   className={ICON_SIZE}
                 />
               </Popover.Button>
@@ -169,7 +169,7 @@ const UserMenu: VFC = () => {
                           <a className="flex items-center p-4 hover:bg-gray-100 focus-visible:bg-gray-100 dark:hover:bg-gray-700 dark:focus-visible:bg-gray-700 focus:outline-none">
                             <Avatar
                               alt={user?.name}
-                              src={image_url ? image_url : default_url}
+                              src={avatarUrl ? avatarUrl : default_url}
                               className="w-14 h-14"
                             />
                             <div className="ml-4">
