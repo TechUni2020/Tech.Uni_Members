@@ -21,6 +21,8 @@
   - Facebook 製の JavaScript のテスティングフレームワークです。テストに関する様々な機能を提供しており、ドキュメントも豊富かつ実績もあるため、採用しています。
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
   - React "Components"をテストするためのものです。[Jest 公式](https://jestjs.io/docs/ja/tutorial-react#dom-%E3%81%AE%E3%83%86%E3%82%B9%E3%83%88)でもコンポーネントをテストしたい場合に使えるものだと言及されています。
+- [GitMoji](https://gitmoji.dev/) 😜
+  - Commit メッセージに絵文字を使うことでパッと見で分かりやすくするものです。
 
 ## セットアップ
 
