@@ -1,7 +1,10 @@
 import React, { useState, useCallback, useContext } from "react";
 import Image from "next/image";
+import type { UserType } from "../../types/types";
+import type { VFC } from "react";
 import { useDropzone } from "react-dropzone";
 import firebase, { storage } from "../../utils/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export type firebaseOnLoadProp = {
   bytesTransferred: number;
@@ -10,10 +13,14 @@ export type firebaseOnLoadProp = {
   // このほかにもmetadata,task,refがある
 };
 
-const Upload: React.FC = () => {
+type Upload = { user?: UserType };
+
+export const Upload: VFC<Upload> = (props) => {
   const [myFiles, setMyFiles] = useState<File[]>([]);
   const [clickable, setClickable] = useState(false);
   const [src, setSrc] = useState("");
+  const [authUser, authLoading, authError] = useAuthState(firebase.auth());
+  const uid = authUser?.uid;
 
   //ドロップ処理 && リジェクト時
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
@@ -50,14 +57,15 @@ const Upload: React.FC = () => {
 
         //②発火した時に実行する関数▷アップロードの進捗を%表記で表示
         function (snapshot: firebaseOnLoadProp) {
+          //ローディングとか出しても良いかもね
           const progress: number =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done");
           switch (snapshot.state) {
-            case firebase.storage.TaskState.PAUSED: // or 'paused'
+            case firebase.storage.TaskState.PAUSED:
               console.log("Upload is paused");
               break;
-            case firebase.storage.TaskState.RUNNING: // or 'running'
+            case firebase.storage.TaskState.RUNNING:
               console.log("Upload is running");
               break;
           }
@@ -68,18 +76,15 @@ const Upload: React.FC = () => {
           // 失敗した時
           switch (error.code) {
             case "storage/unauthorized":
-              // User doesn't have permission to access the object
               console.error("許可がありません");
               break;
 
             case "storage/canceled":
-              console.error("アップロードがキャンセルされました　");
-              // User canceled the upload
+              console.error("アップロードがキャンセルされました");
               break;
 
             case "storage/unknown":
               console.error("予期せぬエラーが発生しました");
-              // Unknown error occurred, inspect error.serverResponse
               break;
           }
         },
@@ -91,6 +96,9 @@ const Upload: React.FC = () => {
               .getDownloadURL()
               .then(function (downloadURL: string) {
                 console.log("ダウンロードしたURL" + downloadURL);
+                firebase.firestore().collection("user").doc(uid).update({
+                  avatarUrl: downloadURL,
+                });
               });
           } catch (error) {
             switch (error.code) {
@@ -145,7 +153,7 @@ const Upload: React.FC = () => {
             <div>
               {myFiles.map((file: File) => (
                 <React.Fragment key={file.name}>
-                  {src && <Image src={src} width={100} height={80} />}
+                  {src && <Image src={src} width={200} height={160} />}
                 </React.Fragment>
               ))}
             </div>
@@ -157,10 +165,9 @@ const Upload: React.FC = () => {
           className="px-4 py-2 my-4 bg-gray-200 rounded-md"
           onClick={() => handleUpload(myFiles)}
         >
-          UPLOAD
+          {props.user ? "変更する" : "設定する"}
         </button>
       </div>
     </div>
   );
 };
-export default Upload;
