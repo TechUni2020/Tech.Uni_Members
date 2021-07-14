@@ -4,6 +4,7 @@ import { Avatar } from "../../components/shared/Avatar";
 import type { VFC } from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
+import { Upload } from "./Upload";
 import type { UserType } from "../../types/types";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -52,9 +53,7 @@ export const ProfileForm: VFC<ProfileFormProps> = (props) => {
               height={96}
               className="overflow-hidden w-24 h-24 rounded-full"
             />
-            <Button variant="solid-gray" className="py-2.5 px-5 mt-4">
-              アイコンを{props.user ? "変更する" : "設定する"}
-            </Button>
+            <Upload user={props.user} />
           </div>
         </div>
         <Formik

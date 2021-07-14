@@ -22,7 +22,7 @@ import { Avatar } from "../shared/Avatar";
 //右側は自由に記載できるように
 type Right = "profile" | JSX.Element;
 
-const ICON_SIZE = "w-10 h-10";
+const ICON_SIZE = "w-17 h-14";
 
 export type HeaderProps = {
   left?: "back" | "close" | "icon" | JSX.Element;
@@ -117,13 +117,8 @@ const UserMenu: VFC = () => {
   const [user] = useDocumentData(
     uid && firebase.firestore().doc(`user/${uid}`)
   );
-  const [image_url] = useDownloadURL(
-    uid && firebase.storage().ref(`user_icon/${uid}.png`)
-  );
 
-  const [default_url] = useDownloadURL(
-    uid && firebase.storage().ref("default_icon.jpeg")
-  );
+  const default_url = "/default_icon.jpeg";
 
   const handleSignOut = async () => {
     try {
@@ -143,7 +138,7 @@ const UserMenu: VFC = () => {
               <Popover.Button className="rounded-full focus-visible:ring-2 focus-visible:ring-blue-400 focus:outline-none">
                 <Avatar
                   alt={user?.name}
-                  src={image_url ? image_url : default_url}
+                  src={user?.avatarUrl ? user?.avatarUrl : default_url}
                   className={ICON_SIZE}
                 />
               </Popover.Button>
@@ -169,8 +164,10 @@ const UserMenu: VFC = () => {
                           <a className="flex items-center p-4 hover:bg-gray-100 focus-visible:bg-gray-100 dark:hover:bg-gray-700 dark:focus-visible:bg-gray-700 focus:outline-none">
                             <Avatar
                               alt={user?.name}
-                              src={image_url ? image_url : default_url}
-                              className="w-14 h-14"
+                              src={
+                                user?.avatarUrl ? user?.avatarUrl : default_url
+                              }
+                              className="w-17 h-14"
                             />
                             <div className="ml-4">
                               <p className="text-base font-bold">

@@ -19,8 +19,6 @@ export const Avatar: VFC<AvatarProps> = (props) => {
         "grid place-items-center bg-gray-200 rounded-full",
         className
       )}
-    >
-      {/* {props.alt.substr(0, 1)} */}
-    </div>
+    ></div>
   );
 };

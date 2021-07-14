@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import { FC, createContext, useEffect, useState } from "react";
 import { auth } from "../utils/firebase";
+import { useRouter } from "next/router";
 
 type AuthContextProps = {
   currentUser: firebase.User | null | undefined;
@@ -9,6 +10,7 @@ type AuthContextProps = {
 const AuthContext = createContext<AuthContextProps>({ currentUser: undefined });
 
 const AuthProvider: FC = ({ children }) => {
+  const router = useRouter();
   const [currentUser, setCurrentUser] = useState<
     firebase.User | null | undefined
   >(undefined);
@@ -26,6 +28,7 @@ const AuthProvider: FC = ({ children }) => {
           //docがなければ作る
           userDoc.ref.set({
             name: user.displayName,
+            avatarUrl: user.photoURL,
             created_at: firebase.firestore.FieldValue.serverTimestamp(),
             email: user.email,
             id: "",
@@ -35,9 +38,10 @@ const AuthProvider: FC = ({ children }) => {
             twitter: "",
             instagram: "",
             discription: "",
-            icon_url: "",
           });
         }
+      } else {
+        router.push("/signin");
       }
     });
   }, []);

@@ -20,13 +20,8 @@ const UsersUserId: NextPage = () => {
   const [user] = useDocumentData(
     uid && firebase.firestore().doc(`user/${uid}`)
   );
-  const [image_url] = useDownloadURL(
-    uid && firebase.storage().ref(`user_icon/${uid}.png`)
-  );
 
-  const [default_url] = useDownloadURL(
-    uid && firebase.storage().ref("default_icon.jpeg")
-  );
+  const default_url = "/default_icon.jpeg";
 
   return (
     <Layout
@@ -47,8 +42,8 @@ const UsersUserId: NextPage = () => {
         <div className="flex items-center space-x-4">
           <Avatar
             alt={user?.name}
-            src={image_url ? image_url : default_url}
-            className="w-24 h-24 "
+            src={user?.avatarUrl ? user?.avatarUrl : default_url}
+            className="w-27 h-24 "
           />
           <div className="flex flex-col space-y-4">
             <div className="flex space-x-4">
