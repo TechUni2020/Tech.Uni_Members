@@ -8,7 +8,7 @@ export default function ServiceCard() {
       {GLOBAL_SERVICESS.map((val, key) => {
         return (
           <li key={key}>
-            <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+            <div className="max-w-sm rounded overflow-hidden shadow-lg bg-gray-50">
               <div className="px-6 py-4">
                 <img src={val.ref} alt={val.title} width={300} height={140} />
                 <div className="font-bold text-xl mb-2 text-gray-800">

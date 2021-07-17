@@ -31,9 +31,9 @@ const Home: NextPage = () => {
         ]}
       >
         <div className="p-10 ">
-          <div className="max-w-5xl rounded overflow-hidden shadow-lg bg-white">
+          <div className="max-w-5xl rounded overflow-hidden shadow-lg bg-gray-50">
             <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">
+              <div className="font-bold text-2xl mb-2">
                 🦔 Hello ! {user?.name}さん
               </div>
               <p className="text-gray-700 text-base">紹介文??</p>
