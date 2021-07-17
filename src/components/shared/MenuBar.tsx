@@ -19,8 +19,20 @@ export default function Sidebar() {
                 router.pathname = val.link;
               }}
             >
-              <div className="flex row py-5 px-5 hover:bg-gray-100">
-                <div className="h-7 w-7 text-gray-400">{val.icon}</div>
+              <div
+                className={`flex row py-2 px-5 hover:bg-gray-100 ${
+                  router.pathname == val.link ? "bg-blue-50" : "bg-white"
+                }`}
+              >
+                <div
+                  className={`h-7 w-7 text-gray-400 ${
+                    router.pathname == val.link
+                      ? "text-blue-400"
+                      : "text-gray-400"
+                  }`}
+                >
+                  {val.icon}
+                </div>
                 <div className="pl-5">{val.title}</div>
               </div>
             </li>
