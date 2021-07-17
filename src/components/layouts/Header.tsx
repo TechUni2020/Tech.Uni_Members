@@ -12,7 +12,6 @@ import "firebase/storage";
 import { useRouter } from "next/router";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDocumentData } from "react-firebase-hooks/firestore";
-import { useDownloadURL } from "react-firebase-hooks/storage";
 import type { VFC } from "react";
 import { Fragment, memo, useCallback } from "react";
 import { Button } from "../shared/Button";

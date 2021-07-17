@@ -2,7 +2,7 @@ import React from "react";
 import { GLOBAL_MENUS } from "../../utils/constants/menu";
 import { useRouter } from "next/router";
 
-export default function Sidebar() {
+export default function Menubar() {
   const router = useRouter();
 
   return (

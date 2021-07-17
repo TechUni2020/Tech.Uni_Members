@@ -1,7 +1,7 @@
 import type { ReactNode, VFC } from "react";
 import type { HeaderProps } from "../layouts/Header";
 import { Header } from "../layouts/Header";
-import Sidebar from "./MenuBar";
+import Menubar from "./MenuBar";
 
 type Props = HeaderProps & {
   children: ReactNode;
@@ -29,7 +29,7 @@ export const Layout: VFC<Props> = (props) => {
             <p>aaaa</p>
           </div>
           <nav className="mt-10">
-            <Sidebar />
+            <Menubar />
           </nav>
         </aside>
         <main className="w-full">{children}</main>
