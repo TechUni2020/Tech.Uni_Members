@@ -10,7 +10,7 @@ export const GLOBAL_SERVICESS = [
   },
   {
     title: "CLOTO",
-    ref: "/services/CLOTO.jpg",
+    ref: "/services/CLOTO.png",
     description:
       "エンジニアのオンライン学習プラットフォームです。日々の活動はCLOTOで行いながらみんなの学習状況を確認したり顔を合わせてお話したりしましょう！",
     tag1: "#CLOTO",
@@ -19,7 +19,7 @@ export const GLOBAL_SERVICESS = [
   },
   {
     title: "Github",
-    ref: "/services/Github.jpeg",
+    ref: "/services/Github.png",
     description:
       "ソフトウェア開発のプラットフォームです。プログラマー必須で、チーム開発やプロダクト開発時に使用します。",
     tag1: "#Github",
