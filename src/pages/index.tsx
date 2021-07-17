@@ -50,11 +50,6 @@ const Home: NextPage = () => {
               </span>
             </div>
           </div>
-          <div className="pt-20 mb-5">
-            <h1 className="font-bold text-xl text-gray-700">
-              Tech.Uniで使用するサービス
-            </h1>
-          </div>
           <ServiceCard />
         </div>
       </Layout>
