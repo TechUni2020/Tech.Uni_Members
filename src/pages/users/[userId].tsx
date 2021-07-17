@@ -38,7 +38,7 @@ const UsersUserId: NextPage = () => {
         "profile",
       ]}
     >
-      <div className="space-y-7 ">
+      <div className="pt-7 pl-7">
         <div className="flex items-center space-x-4">
           <Avatar
             alt={user?.name}
@@ -48,22 +48,18 @@ const UsersUserId: NextPage = () => {
           <div className="flex flex-col space-y-4">
             <div className="flex space-x-4">
               <span className="text-2xl font-bold ">{user?.name}</span>
-              <div className="flex rounded-full px-3 h-8 bg-blue-500 items-center">
-                <span className="text-white w-10 h-10 leading-10 text-center">
-                  {user?.role}
-                </span>
-              </div>
-              <div className="flex rounded-full px-3 h-8 bg-blue-500 items-center">
-                <span className="text-white w-10 h-10 leading-10 text-center">
-                  {user?.belongs}
-                </span>
-              </div>
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                # {user?.role}
+              </span>
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                # {user?.belongs}
+              </span>
               <Button
                 variant="solid-gray"
                 linkProps={{ href: "/mypage" }}
-                className="px-4 h-10"
+                className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-blue-100 overflow-hidden shadow-lg"
               >
-                <span className=" w-10 h-10 leading-10 text-center">設定</span>
+                <span>設定</span>
               </Button>
             </div>
             <span className="">{user?.discription}</span>
