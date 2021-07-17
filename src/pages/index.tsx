@@ -30,15 +30,15 @@ const Home: NextPage = () => {
           "profile",
         ]}
       >
-        <div className="p-10 ">
-          <div className="max-w-5xl rounded overflow-hidden shadow-lg bg-gray-50">
+        <div className="p-10 bg-gray-100">
+          <div className="rounded-xl max-w-5xl overflow-hidden shadow-lg bg-gray-50 py-5">
             <div className="px-6 py-4">
               <div className="font-bold text-2xl mb-2">
                 🦔 Hello ! {user?.name}さん
               </div>
               <p className="text-gray-700 text-base">紹介文??</p>
             </div>
-            <div className="px-6 pt-4 pb-2">
+            <div className="px-6 pt-4">
               <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 #TechUni
               </span>

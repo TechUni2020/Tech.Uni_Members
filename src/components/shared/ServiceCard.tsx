@@ -8,13 +8,15 @@ export default function ServiceCard() {
       {GLOBAL_SERVICESS.map((val, key) => {
         return (
           <li key={key}>
-            <div className="max-w-sm rounded overflow-hidden shadow-lg bg-gray-50">
+            <div className="max-w-sm rounded-3xl overflow-hidden shadow-lg bg-gray-50">
               <div className="px-6 py-4">
                 <img src={val.ref} alt={val.title} width={300} height={140} />
                 <div className="font-bold text-xl mb-2 text-gray-800">
                   {val.title}
                 </div>
-                <p className="text-gray-500 text-base">{val.description}</p>
+                <span className="text-gray-500 text-base inline-block">
+                  {val.description}
+                </span>
               </div>
               <div className="px-6 pt-4 pb-2">
                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
