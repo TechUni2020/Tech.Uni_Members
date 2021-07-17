@@ -15,15 +15,15 @@ const SettingsUserEdit: NextPage = () => {
   );
 
   const CURRENT_USER: UserType = {
-    id: user.id,
-    name: user.name,
-    avatarUrl: user.avatarUrl,
-    belongs: user.belongs,
-    role: user.role,
-    github: user.github,
-    twitter: user.twitter,
-    instagram: user.instagram,
-    discription: user.discription,
+    id: user?.id,
+    name: user?.name,
+    avatarUrl: user?.avatarUrl,
+    belongs: user?.belongs,
+    role: user?.role,
+    github: user?.github,
+    twitter: user?.twitter,
+    instagram: user?.instagram,
+    discription: user?.discription,
   };
 
   return (
