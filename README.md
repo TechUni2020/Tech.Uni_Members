@@ -130,8 +130,14 @@ Thanks goes to these wonderful people
 <table>
   <tr>
     <td align="center"><a href="https://twitter.com/shouhi_ide"><img src="https://user-images.githubusercontent.com/63713624/123041698-9f3c9b00-d430-11eb-8faf-e98e27e347db.jpg" width="100px;" alt=""/><br /><sub><b>井手翔陽</b></sub></a><br /><a href="https://github.com/TechUni2020/Tech.Uni_Members/commits?author=shouhi" title="Documentation">📖</a> <a href="#projectManagement-shouhi" title="Project Management">📆</a>
+    </td>
+    <td align="center"><a href="https://twitter.com/nihon_kaizou"><img src="https://avatars.githubusercontent.com/u/66231271?v=4" width="100px;" alt=""/><br /><sub><b>mine2424</b></sub></a><br /><a href="https://github.com/TechUni2020/Tech.Uni_Members/commits?author=mine2424" title="Documentation">📖</a> <a href="#projectEngineer-mine" title="Project Engineer">📆</a>
+    </td>
 </table>
 
+  
+  
+  
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
