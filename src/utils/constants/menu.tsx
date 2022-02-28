@@ -19,7 +19,7 @@ export const GLOBAL_MENUS = [
   {
     title: "メンバー",
     icon: <UsersIcon />,
-    link: "/user",
+    link: "/members",
   },
   {
     title: "マイページ",
