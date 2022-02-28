@@ -1,7 +1,7 @@
 import { auth } from "../utils/firebase";
 
 const socialMediaAuth = (provider) => {
-  auth
+  return auth
     .signInWithPopup(provider)
     .then((res) => {
       return res.user;
