@@ -5,12 +5,13 @@ import "firebase/storage";
 import firebase from "firebase/app";
 
 const config = {
-  apiKey: "AIzaSyBYtwNnadDdStxW4UlAP4O8mcyLNCaQKWg",
-  authDomain: "member-site-e9812.firebaseapp.com",
-  projectId: "member-site-e9812",
-  storageBucket: "member-site-e9812.appspot.com",
-  messagingSenderId: "1088198469972",
-  appId: "1:1088198469972:web:feb5f07ce22b5b40fbc0c1",
+  apiKey: process.env.FIREBASE_KEY,
+  authDomain: process.env.FIREBASE_DOMAIN,
+  databeseURL: process.env.FIREBASE_DATABASE,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_SENDER_ID,
+  appId: process.env.FIREBASE_APPID,
 };
 
 // initializeを複数回走らせない
