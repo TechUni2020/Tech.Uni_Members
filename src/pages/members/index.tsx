@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-import { user } from "firebase-functions/v1/auth"
 import { NextPage } from "next"
 import { useRouter } from "next/router"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { GithubIcon } from "../../components/Icon/GithubIcon"
 import { InstagramIcon } from "../../components/Icon/InstagramIcon"
 import { TwitterIcon } from "../../components/Icon/TwitterIcon"
@@ -13,20 +12,24 @@ import { UserRepository } from "../../domain/user/user_repository"
 
 const Members: NextPage = () => {
   const router = useRouter();
+  const [members, setMembers] = useState([]);
 
   let users: User[] = [];
   useEffect(() => {
     (async () => { 
       users = await new UserRepository().getMembers()
+      setMembers(users);
       console.log(users)
     })()
-  }, [users])
+  }, [])
+
+  console.log(`members ::: ${members}`);
 
   return (
     <>
       <Layout>
-        {users.map((user, i) => {
-          <div className="flex flex-col pt-8 pb-2 px-8">
+        {members.map((user) => {
+          return (<div className="flex flex-col pt-8 pb-2 px-8" key={user.toString()}>
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -64,6 +67,7 @@ const Members: NextPage = () => {
               </div>
             </div>
           </div>
+          )
         })}
       </Layout>
     </>
