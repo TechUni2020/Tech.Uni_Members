@@ -14,7 +14,7 @@ const MyPage: NextPage = () => {
   const [authUser, authLoading, authError] = useAuthState(firebase.auth());
   const uid = authUser?.uid;
   const [user] = useDocumentData(
-    uid && firebase.firestore().doc(`user/${uid}`)
+    uid && firebase.firestore().doc(`users/${uid}`)
   );
   const default_url = "/default_icon.jpeg";
 
@@ -22,7 +22,7 @@ const MyPage: NextPage = () => {
     <Layout left="back">
       <div className="flex flex-col items-center">
         <img
-          src={user?.avatarUrl ? user?.avatarUrl : default_url}
+          src={user?.profilePicture ? user?.profilePicture : default_url}
           alt={user?.name}
           className="overflow-hidden w-27 h-24 rounded-full"
         />

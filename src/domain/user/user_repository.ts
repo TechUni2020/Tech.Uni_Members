@@ -7,11 +7,27 @@ export class UserRepository {
 
   async getMembers(): Promise<User[]> {
     try {
-      const snapshots = await this.db.collection("users").get()
+      const snapshots = await this.db.collection("members").where("role", "==", "member").get()
       const list = [] as User[]
       snapshots.docs.forEach(doc => {
         list.push(User.fromJSON(doc.data()))
       });
+
+      return list
+    } catch (error) {
+      throw error
+    }
+  }
+
+  async getExecutiveMembers(): Promise<User[]> {
+    try {
+      
+      const snapshots = await this.db.collection("members").where("role", "!=", "member").get()
+      const list = [] as User[]
+      snapshots.docs.forEach(doc => {
+        list.push(User.fromJSON(doc.data()))
+      });
+      console.log(list);
 
       return list
     } catch (error) {

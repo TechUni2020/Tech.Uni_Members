@@ -96,8 +96,8 @@ export const Upload: VFC<Upload> = (props) => {
               .getDownloadURL()
               .then(function (downloadURL: string) {
                 console.log("ダウンロードしたURL" + downloadURL);
-                firebase.firestore().collection("user").doc(uid).update({
-                  avatarUrl: downloadURL,
+                firebase.firestore().collection("users").doc(uid).update({
+                  profilePicture: downloadURL,
                 });
               });
           } catch (error) {

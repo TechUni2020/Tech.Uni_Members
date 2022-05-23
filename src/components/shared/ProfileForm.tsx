@@ -20,10 +20,10 @@ export const ProfileForm: VFC<ProfileFormProps> = (props) => {
   const uid = authUser?.uid;
 
   const handleOnSubmit = async (values: any) => {
-    await (uid && firebase.firestore().doc(`user/${uid}`)).update({
+    await (uid && firebase.firestore().doc(`users/${uid}`)).update({
       name: values.name,
       id: values.id,
-      belongs: values.belongs,
+      university: values.university,
       role: values.role,
       github: values.github,
       twitter: values.twitter,
@@ -47,7 +47,7 @@ export const ProfileForm: VFC<ProfileFormProps> = (props) => {
         <div>
           <div className="flex justify-start items-center space-x-6">
             <Avatar
-              src={props.user?.avatarUrl}
+              src={props.user?.profilePicture}
               alt={props.user?.name}
               width={96}
               height={96}
@@ -60,12 +60,12 @@ export const ProfileForm: VFC<ProfileFormProps> = (props) => {
           initialValues={{
             name: props.user.name,
             id: props.user.id,
-            belongs: props.user.belongs,
+            bio: props.user.bio,
             role: props.user.role,
-            github: props.user.github,
-            twitter: props.user.twitter,
-            instagram: props.user.instagram,
-            discription: props.user.discription,
+            githubId: props.user.githubId,
+            twitterId: props.user.twitterId,
+            instagramId: props.user.instagramId,
+            university: props.user.university,
           }}
           onSubmit={(values) => handleOnSubmit(values)}
           validationSchema={validationSchema}
@@ -86,9 +86,9 @@ export const ProfileForm: VFC<ProfileFormProps> = (props) => {
                 onChange={(e) => handleChange(e)}
               />
               <Input
-                name="belongs"
-                label="所属クラス"
-                value={values.belongs}
+                name="university"
+                label="所属大学"
+                value={values.university}
                 onChange={(e) => handleChange(e)}
               />
               <Input
@@ -100,25 +100,25 @@ export const ProfileForm: VFC<ProfileFormProps> = (props) => {
               <Input
                 name="github"
                 label="Githubアカウント"
-                value={values.github}
+                value={values.githubId}
                 onChange={(e) => handleChange(e)}
               />
               <Input
                 name="twitter"
                 label="Twitterアカウント"
-                value={values.twitter}
+                value={values.twitterId}
                 onChange={(e) => handleChange(e)}
               />
               <Input
                 name="instagram"
                 label="Instagramアカウント"
-                value={values.instagram}
+                value={values.instagramId}
                 onChange={(e) => handleChange(e)}
               />
               <Input
                 name="discription"
                 label="コメント"
-                value={values.discription}
+                value={values.bio}
                 onChange={(e) => handleChange(e)}
               />
               <div className="mt-12 space-y-4">

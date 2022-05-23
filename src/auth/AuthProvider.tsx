@@ -22,22 +22,24 @@ const AuthProvider: FC = ({ children }) => {
         // ログイン済みのユーザー情報があるかをチェック
         const userDoc = await firebase
           .firestore()
-          .doc(`user/${user.uid}`)
+          .doc(`users/${user.uid}`)
           .get();
         if (!userDoc.exists) {
           //docがなければ作る
           userDoc.ref.set({
             name: user.displayName,
-            avatarUrl: user.photoURL,
+            profilePicture: user.photoURL,
             created_at: firebase.firestore.FieldValue.serverTimestamp(),
-            email: user.email,
-            id: "",
-            belongs: "",
+            uid: user.uid.substring(0,10),
+            university: "",
+            grade: "",
+            department: "",
             role: "",
-            github: "",
-            twitter: "",
-            instagram: "",
-            discription: "",
+            githubId: "",
+            twitterId: "",
+            instagramId: "",
+            bio: "",
+            knownAs: "",
           });
         }
       } else {

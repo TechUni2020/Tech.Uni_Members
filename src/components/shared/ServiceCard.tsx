@@ -10,7 +10,7 @@ export default function ServiceCard() {
           Tech.Uniで使用するサービス
         </h1>
       </div>
-      <ul className="flex space-x-4">
+      <ul className="flex flex-wrap space-x-4 space-y-4">
         {GLOBAL_SERVICESS.map((val, key) => {
           return (
             <li key={key}>

@@ -15,7 +15,7 @@ const Service: NextPage = () => {
   const [authUser, authLoading, authError] = useAuthState(firebase.auth());
   const uid = authUser?.uid;
   const [user] = useDocumentData(
-    uid && firebase.firestore().doc(`user/${uid}`)
+    uid && firebase.firestore().doc(`users/${uid}`)
   );
   return (
     <AuthProvider>

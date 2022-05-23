@@ -32,7 +32,7 @@ export const Layout: VFC<Props> = (props) => {
             <Menubar />
           </nav>
         </aside>
-        <main className="w-full bg-gray-50">{children}</main>
+        <main className="w-full bg-sky">{children}</main>
       </div>
       <footer>
         <div className="p-8">

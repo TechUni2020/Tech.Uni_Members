@@ -114,7 +114,7 @@ const UserMenu: VFC = () => {
   const [authUser, authLoading, authError] = useAuthState(firebase.auth());
   const uid = authUser?.uid;
   const [user] = useDocumentData(
-    uid && firebase.firestore().doc(`user/${uid}`)
+    uid && firebase.firestore().doc(`users/${uid}`)
   );
 
   const default_url = "/default_icon.jpeg";
@@ -137,7 +137,7 @@ const UserMenu: VFC = () => {
               <Popover.Button className="rounded-full focus-visible:ring-2 focus-visible:ring-blue-400 focus:outline-none">
                 <Avatar
                   alt={user?.name}
-                  src={user?.avatarUrl ? user?.avatarUrl : default_url}
+                  src={user?.profilePicture ? user?.profilePicture : default_url}
                   className={ICON_SIZE}
                 />
               </Popover.Button>
@@ -159,12 +159,12 @@ const UserMenu: VFC = () => {
                   >
                     <div className="overflow-hidden py-4 bg-white dark:bg-gray-800 rounded-2xl ring-1 ring-gray-400 ring-opacity-20 shadow-lg">
                       <div>
-                        <Link href="/settings/qin">
+                        <Link href="/mypage">
                           <a className="flex items-center p-4 hover:bg-gray-100 focus-visible:bg-gray-100 dark:hover:bg-gray-700 dark:focus-visible:bg-gray-700 focus:outline-none">
                             <Avatar
                               alt={user?.name}
                               src={
-                                user?.avatarUrl ? user?.avatarUrl : default_url
+                                user?.profilePicture ? user?.profilePicture : default_url
                               }
                               className="w-17 h-14"
                             />

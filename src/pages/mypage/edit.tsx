@@ -11,19 +11,24 @@ const SettingsUserEdit: NextPage = () => {
   const [authUser, authLoading, authError] = useAuthState(firebase.auth());
   const uid = authUser?.uid;
   const [user] = useDocumentData(
-    uid && firebase.firestore().doc(`user/${uid}`)
+    uid && firebase.firestore().doc(`users/${uid}`)
   );
 
   const CURRENT_USER: UserType = {
     id: user?.id,
     name: user?.name,
-    avatarUrl: user?.avatarUrl,
-    belongs: user?.belongs,
+    profilePicture: user?.profilePicture,
     role: user?.role,
-    github: user?.github,
-    twitter: user?.twitter,
-    instagram: user?.instagram,
-    discription: user?.discription,
+    githubId: user?.github,
+    twitterId: user?.twitter,
+    instagramId: user?.instagram,
+    bio: user?.discription,
+    knownAs: user?.knownAs,
+    university: user?.university,
+    department: user?.department,
+    grade: user?.grade,
+    uid: user?.uid,
+
   };
 
   return (
