@@ -30,7 +30,7 @@ const AuthProvider: FC = ({ children }) => {
             name: user.displayName,
             profilePicture: user.photoURL,
             created_at: firebase.firestore.FieldValue.serverTimestamp(),
-            uid: user.uid.substring(0,10),
+            uid: user.uid.substring(0, 10),
             university: "",
             grade: "",
             department: "",
@@ -46,7 +46,7 @@ const AuthProvider: FC = ({ children }) => {
         router.push("/signin");
       }
     });
-  }, []);
+  }, [router]);
 
   return (
     <AuthContext.Provider value={{ currentUser }}>
