@@ -39,10 +39,17 @@ export const GLOBAL_SERVICESS = [
     title: "TechTrain",
     ref: "/services/TechTrain.png",
     description:
-      "プログラミング学習ロードマップです。フロントエンド・バックエンド・ネイティブなどより実践に近い形でプログラミングが学べます。また、現役エンジニアの方との面談もすることができます。",
-    tag1: "#CLOTO",
+      "フロントエンド・バックエンド・ネイティブなどより実践に近い形でプログラミングが学べます。また、現役エンジニアの方との面談もすることができます。",
+    tag1: "#TechTrain",
     tag2: "#プログラミング学習",
     tag3: "#オンラインコワーキングスペース",
   },
-  
+  {
+    title: "Gather",
+    ref: "/services/Gather.png",
+    description: "実装予定",
+    tag1: "#Gather",
+    tag2: "#バーチャルオフィス",
+    tag3: "#プログラミング学習",
+  },
 ] as const;
