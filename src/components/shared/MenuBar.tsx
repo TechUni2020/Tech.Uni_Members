@@ -12,7 +12,7 @@ export default function Menubar() {
           return (
             <li
               key={key}
-              className=""
+              className="cursor-pointer"
               onClick={() => {
                 console.log(val.link);
                 router.push(val.link);
