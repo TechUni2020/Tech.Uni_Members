@@ -10,32 +10,37 @@ export default function ServiceCard() {
           Tech.Uniで使用するサービス
         </h1>
       </div>
-      <ul className="flex flex-wrap space-x-4 space-y-4">
+      <ul className="flex flex-wrap gap-6">
         {GLOBAL_SERVICESS.map((val, key) => {
           return (
             <li key={key}>
-              <div className="max-w-sm rounded-3xl overflow-hidden shadow-lg bg-gray-50">
-                <div className="px-6 py-4">
-                  <img src={val.ref} alt={val.title} width={400} height={140} />
-                  <div className="font-bold text-xl mb-2 text-gray-800">
-                    {val.title}
+              <a href={`${val.link}`} target="_blank" rel="noopener noreferrer">
+                <div className="w-96 rounded-3xl overflow-hidden shadow-lg bg-gray-50">
+                  <div className="px-6 py-4">
+                    <div
+                      className="h-36 max-w-xs  bg-cover bg-center"
+                      style={{ backgroundImage: `url(${val.ref})` }}
+                    ></div>
+                    <div className="font-bold text-xl mb-2 text-gray-800">
+                      {val.title}
+                    </div>
+                    <span className="text-gray-500 text-base inline-block min-h-[96px]">
+                      {val.description}
+                    </span>
                   </div>
-                  <span className="text-gray-500 text-base inline-block">
-                    {val.description}
-                  </span>
+                  <div className="px-6 pt-4 pb-2">
+                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                      {val.tag1}
+                    </span>
+                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                      {val.tag2}
+                    </span>
+                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                      {val.tag3}
+                    </span>
+                  </div>
                 </div>
-                <div className="px-6 pt-4 pb-2">
-                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    {val.tag1}
-                  </span>
-                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    {val.tag2}
-                  </span>
-                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    {val.tag3}
-                  </span>
-                </div>
-              </div>
+              </a>
             </li>
           );
         })}
