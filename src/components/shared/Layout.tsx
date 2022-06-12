@@ -13,7 +13,7 @@ export const Layout: VFC<Props> = (props) => {
   const { children, ...headerProps } = props;
 
   return (
-    <div className="pb-20">
+    <div>
       <div
         className="pt-4 pb-1 mx-auto"
         // className={`px-3 pt-4 pb-8 mx-auto sm:px-4 sm:pb-14 ${
@@ -32,15 +32,17 @@ export const Layout: VFC<Props> = (props) => {
             <Menubar />
           </nav>
         </aside>
-        <main className="w-full bg-sky">{children}</main>
-      </div>
-      <footer>
-        <div className="p-8">
-          <div className="text-gray-600 text-center">
-            <p>Tech.Uni org.</p>
-          </div>
+        <div className="flex flex-col">
+          <main className="w-full bg-sky">{children}</main>
+          <footer className="bg-gray-100">
+            <div className="p-8">
+              <div className="text-gray-600 text-center">
+                <p>Tech.Uni org.</p>
+              </div>
+            </div>
+          </footer>
         </div>
-      </footer>
+      </div>
     </div>
   );
 };
