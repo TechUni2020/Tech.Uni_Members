@@ -33,7 +33,7 @@ const Service: NextPage = () => {
           "profile",
         ]}
       >
-        <div className="p-10 bg-gray-100">
+        <div className="p-10 bg-gray-100 max-w-[90rem]">
           <h1 className="text-3xl font-extrabold text-gray-700">サービス</h1>
           <ServiceCard />
           <DevCard develops={GLOBAL_TEAMDEVELOPS} />

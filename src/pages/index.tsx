@@ -30,7 +30,7 @@ const Home: NextPage = () => {
           "profile",
         ]}
       >
-        <div className="p-10 bg-gray-100">
+        <div className="p-10 bg-gray-100 max-w-[90rem]">
           <div className="rounded-xl max-w-5xl overflow-hidden shadow-lg bg-gray-50 py-5">
             <div className="px-6 py-4">
               <div className="font-bold text-2xl mb-2">
