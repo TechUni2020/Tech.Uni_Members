@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 import { FC, createContext, useEffect, useState } from "react";
-import { auth } from "../utils/firebase";
+import { auth } from "../firebase";
 import { useRouter } from "next/router";
 
 type AuthContextProps = {
@@ -46,7 +46,7 @@ const AuthProvider: FC = ({ children }) => {
         router.push("/signin");
       }
     });
-  }, [router]);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ currentUser }}>

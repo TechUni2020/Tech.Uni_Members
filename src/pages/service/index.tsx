@@ -2,7 +2,7 @@
 import type { NextPage } from "next";
 import { Layout } from "../../components/shared/Layout";
 import { Button } from "../../components/shared/Button";
-import { AuthProvider } from "../../auth/AuthProvider";
+import { AuthProvider } from "../../utils/auth/AuthProvider";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import firebase from "firebase/app";
