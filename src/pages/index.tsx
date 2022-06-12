@@ -7,6 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import firebase from "firebase/app";
 import ServiceCard from "../components/shared/ServiceCard";
+import { Loading } from "../components/shared/Loading";
 
 const Home: NextPage = () => {
   const [authUser, authLoading, authError] = useAuthState(firebase.auth());
@@ -14,6 +15,11 @@ const Home: NextPage = () => {
   const [user] = useDocumentData(
     uid && firebase.firestore().doc(`users/${uid}`)
   );
+
+  if (authLoading) {
+    return <Loading className="flex justify-center h-screen mt-4" />;
+  }
+
   return (
     <AuthProvider>
       <Layout

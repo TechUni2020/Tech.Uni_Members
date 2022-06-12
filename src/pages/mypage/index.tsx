@@ -8,6 +8,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { Layout } from "../../components/shared/Layout";
 import { List } from "../../components/shared/List";
+import { Loading } from "../../components/shared/Loading";
 
 const MyPage: NextPage = () => {
   const router = useRouter();
@@ -17,6 +18,10 @@ const MyPage: NextPage = () => {
     uid && firebase.firestore().doc(`users/${uid}`)
   );
   const default_url = "/default_icon.jpeg";
+
+  if (authLoading) {
+    return <Loading className="flex justify-center h-screen mt-4" />;
+  }
 
   return (
     <Layout left="back">

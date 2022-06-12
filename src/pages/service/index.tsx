@@ -10,6 +10,7 @@ import ServiceCard from "../../components/shared/ServiceCard";
 import DevCard from "../../components/shared/DevCard";
 import { GLOBAL_TEAMDEVELOPS } from "../../utils/constants/teamdevelop";
 import { GLOBAL_SELFDEVELOPS } from "../../utils/constants/selfdevelops";
+import { Loading } from "../../components/shared/Loading";
 
 const Service: NextPage = () => {
   const [authUser, authLoading, authError] = useAuthState(firebase.auth());
@@ -17,6 +18,11 @@ const Service: NextPage = () => {
   const [user] = useDocumentData(
     uid && firebase.firestore().doc(`users/${uid}`)
   );
+
+  if (authLoading) {
+    return <Loading className="flex justify-center h-screen mt-4" />;
+  }
+
   return (
     <AuthProvider>
       <Layout
