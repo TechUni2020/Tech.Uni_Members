@@ -14,7 +14,7 @@ export default function ServiceCard() {
         {GLOBAL_SERVICESS.map((val, key) => {
           return (
             <li key={key}>
-              <a href={`${val.link}`}>
+              <a href={`${val.link}`} target="_blank" rel="noopener noreferrer">
                 <div className="w-96 rounded-3xl overflow-hidden shadow-lg bg-gray-50">
                   <div className="px-6 py-4">
                     <div
