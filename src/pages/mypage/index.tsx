@@ -20,7 +20,7 @@ const MyPage: NextPage = () => {
   const default_url = "/default_icon.jpeg";
 
   if (authLoading) {
-    return <Loading className="flex justify-center h-screen mt-4" />;
+    return <Loading />;
   }
 
   return (

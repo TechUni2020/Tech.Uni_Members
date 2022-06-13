@@ -20,7 +20,7 @@ const Service: NextPage = () => {
   );
 
   if (authLoading) {
-    return <Loading className="flex justify-center h-screen mt-4" />;
+    return <Loading />;
   }
 
   return (
