@@ -22,8 +22,8 @@ export const Layout: VFC<Props> = (props) => {
       >
         <Header {...headerProps} />
       </div>
-      <div className="flex min-h-screen w-screen">
-        <aside className="bg-white w-60 h-screen sticky top-0">
+      <div className="flex w-screen">
+        <aside className="bg-white w-60 sticky top-0">
           <div className="flex items-center justify-center mt-10">
             {/* <a href="/">Application</a> */}
             <p>aaaa</p>
@@ -32,8 +32,8 @@ export const Layout: VFC<Props> = (props) => {
             <Menubar />
           </nav>
         </aside>
-        <div className="flex flex-col">
-          <main className="w-full bg-sky">{children}</main>
+        <div className="flex flex-col flex-grow">
+          <main className="w-full bg-gray-100 min-h-[83vh]">{children}</main>
           <footer className="bg-gray-100">
             <div className="p-8">
               <div className="text-gray-600 text-center">
