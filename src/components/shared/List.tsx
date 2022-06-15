@@ -12,13 +12,19 @@ type Link = {
 
 type ComponentButton = { label: string | JSX.Element; button: JSX.Element };
 
-type AllButton = { label: string | JSX.Element; onClick: DOMAttributes<HTMLButtonElement>["onClick"] };
+type AllButton = {
+  label: string | JSX.Element;
+  onClick: DOMAttributes<HTMLButtonElement>["onClick"];
+};
 
 type Button = ComponentButton | AllButton;
 
 type ListItem = Link | Button;
 
-type ListProps = { title?: string | JSX.Element; items: [ListItem, ...ListItem[]] };
+type ListProps = {
+  title?: string | JSX.Element;
+  items: [ListItem, ...ListItem[]];
+};
 
 const isLink = (item: ListItem): item is Link => {
   return "href" in item;
@@ -30,14 +36,19 @@ const hasButton = (item: Button): item is ComponentButton => {
 
 export const List: VFC<ListProps> = (props) => {
   return (
-    <div className="space-y-1">
-      {props.title ? <div className="text-sm font-bold text-gray-400">{props.title}</div> : null}
+    <div className="space-y-1 w-64">
+      {props.title ? (
+        <div className="text-sm font-bold text-gray-400">{props.title}</div>
+      ) : null}
       <ul>
         {props.items.map((item, i) => {
-          const className = clsx("flex justify-between items-center py-3 px-4 -mx-4 text-lg font-bold", {
-            "hover:bg-gray-100 focus-visible:bg-gray-100 dark:hover:bg-gray-700 dark:focus-visible:bg-gray-700 focus:outline-none":
-              isLink(item),
-          });
+          const className = clsx(
+            "flex justify-between items-center py-3 px-4 -mx-4 text-lg font-bold",
+            {
+              "hover:bg-gray-100 focus-visible:bg-gray-100 dark:hover:bg-gray-700 dark:focus-visible:bg-gray-700 focus:outline-none":
+                isLink(item),
+            }
+          );
 
           if (isLink(item)) {
             const isExternal = item.href.slice(0, 1) !== "/";
@@ -50,7 +61,11 @@ export const List: VFC<ListProps> = (props) => {
                     rel={isExternal ? "noopener noreferrer" : undefined}
                   >
                     {item.label}
-                    {isExternal ? <ExternalLinkIcon className="w-5 h-5" /> : <ChevronRightIcon className="w-5 h-5" />}
+                    {isExternal ? (
+                      <ExternalLinkIcon className="w-5 h-5" />
+                    ) : (
+                      <ChevronRightIcon className="w-5 h-5" />
+                    )}
                   </a>
                 </Link>
               </li>

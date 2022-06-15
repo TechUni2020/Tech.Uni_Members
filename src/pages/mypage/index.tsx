@@ -23,14 +23,14 @@ const MyPage: NextPage = () => {
    // TODO: error時の処理
     return <div>error</div>
   }
-  if (authLoading ) {
+  if (authLoading || !user) {
    // TODO: dataを取ってくる間もloadingにする
     return <Loading />;
   }
 
   return (
     <Layout left="back">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center pt-8">
         <img
           src={user?.profilePicture ? user?.profilePicture : default_url}
           alt={user?.name}
@@ -41,8 +41,7 @@ const MyPage: NextPage = () => {
           アカウントに関する各種設定ができます
         </p>
       </div>
-
-      <div className="mt-12">
+      <div className="mt-12 flex justify-center">
         <List
           title="全般"
           items={[
