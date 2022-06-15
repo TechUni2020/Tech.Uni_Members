@@ -10,6 +10,7 @@ import ServiceCard from "../../components/shared/ServiceCard";
 import DevCard from "../../components/shared/DevCard";
 import { GLOBAL_TEAMDEVELOPS } from "../../utils/constants/teamdevelop";
 import { GLOBAL_SELFDEVELOPS } from "../../utils/constants/selfdevelops";
+import { Loading } from "../../components/shared/Loading";
 
 const Service: NextPage = () => {
   const [authUser, authLoading, authError] = useAuthState(firebase.auth());
@@ -17,6 +18,11 @@ const Service: NextPage = () => {
   const [user] = useDocumentData(
     uid && firebase.firestore().doc(`users/${uid}`)
   );
+
+  if (authLoading) {
+    return <Loading />;
+  }
+
   return (
     <AuthProvider>
       <Layout
@@ -33,7 +39,7 @@ const Service: NextPage = () => {
           "profile",
         ]}
       >
-        <div className="p-10 bg-gray-100">
+        <div className="p-10 bg-gray-100 max-w-[90rem]">
           <h1 className="text-3xl font-extrabold text-gray-700">サービス</h1>
           <ServiceCard />
           <DevCard develops={GLOBAL_TEAMDEVELOPS} />

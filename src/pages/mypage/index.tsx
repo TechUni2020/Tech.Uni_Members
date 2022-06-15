@@ -19,7 +19,14 @@ const MyPage: NextPage = () => {
   );
   const default_url = "/default_icon.jpeg";
 
-  if (authLoading || !user) return <Loading />;
+  if(authError) {
+   // TODO: error時の処理
+    return <div>error</div>
+  }
+  if (authLoading || !user) {
+   // TODO: dataを取ってくる間もloadingにする
+    return <Loading />;
+  }
 
   return (
     <Layout left="back">

@@ -7,6 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import firebase from "firebase/app";
 import ServiceCard from "../components/shared/ServiceCard";
+import { Loading } from "../components/shared/Loading";
 
 const Home: NextPage = () => {
   const [authUser, authLoading, authError] = useAuthState(firebase.auth());
@@ -14,6 +15,11 @@ const Home: NextPage = () => {
   const [user] = useDocumentData(
     uid && firebase.firestore().doc(`users/${uid}`)
   );
+
+  if (authLoading) {
+    return <Loading />;
+  }
+
   return (
     <AuthProvider>
       <Layout
@@ -30,7 +36,7 @@ const Home: NextPage = () => {
           "profile",
         ]}
       >
-        <div className="p-10 bg-gray-100">
+        <div className="p-10 bg-gray-100 max-w-[90rem]">
           <div className="rounded-xl max-w-5xl overflow-hidden shadow-lg bg-gray-50 py-5">
             <div className="px-6 py-4">
               <div className="font-bold text-2xl mb-2">
