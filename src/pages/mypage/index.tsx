@@ -8,6 +8,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { Layout } from "../../components/shared/Layout";
 import { List } from "../../components/shared/List";
+import { Loading } from "../../components/shared/Loading";
 
 const MyPage: NextPage = () => {
   const router = useRouter();
@@ -18,9 +19,11 @@ const MyPage: NextPage = () => {
   );
   const default_url = "/default_icon.jpeg";
 
+  if (authLoading || !user) return <Loading />;
+
   return (
     <Layout left="back">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center pt-8">
         <img
           src={user?.profilePicture ? user?.profilePicture : default_url}
           alt={user?.name}
@@ -31,8 +34,7 @@ const MyPage: NextPage = () => {
           アカウントに関する各種設定ができます
         </p>
       </div>
-
-      <div className="mt-12">
+      <div className="mt-12 flex justify-center">
         <List
           title="全般"
           items={[
