@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import type { NextPage } from "next";
-import { AuthContext } from "../auth/AuthProvider";
+import { AuthContext } from "../utils/auth/AuthProvider";
 import { useRouter } from "next/router";
 import { GoogleIcon } from "../components/Icon/GoogleIcon";
 import { Button } from "../components/shared/Button";
@@ -8,8 +8,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { GithubIcon } from "../components/Icon/GithubIcon";
 
-import { githubProvider, googleProvider } from "../auth/AuthMethods";
-import socialMediaAuth from "../auth/SocialMediaAuth";
+import { githubProvider, googleProvider } from "../utils/auth/AuthMethods";
+import socialMediaAuth from "../utils/auth/SocialMediaAuth";
 
 const Signin: NextPage = () => {
   const router = useRouter();
@@ -21,7 +21,7 @@ const Signin: NextPage = () => {
 
   const handleOnClick = async (provider) => {
     const res = await socialMediaAuth(provider);
-    console.log(res);
+    console.log("res", res);
   };
 
   return (

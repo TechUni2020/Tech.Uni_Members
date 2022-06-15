@@ -7,11 +7,12 @@ import Link from "next/link";
 import type { NextPage } from "next";
 import { GithubIcon } from "../components/Icon/GithubIcon";
 
-import { githubProvider, googleProvider } from "../auth/AuthMethods";
-import socialMediaAuth from "../auth/SocialMediaAuth";
+import { githubProvider, googleProvider } from "../utils/auth/AuthMethods";
+import socialMediaAuth from "../utils/auth/SocialMediaAuth";
 import LoginWidget from "../components/widgets/Login_widget";
 
 const Signup: NextPage = () => {
+  console.log("googleProvider", googleProvider);
   const auth = firebase.auth();
   useEffect(() => {
     auth.onAuthStateChanged((user) => {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { AppProps } from "next/app";
-import { AuthProvider } from "../auth/AuthProvider";
+import { AuthProvider } from "../utils/auth/AuthProvider";
 import "../../styles/globals.css";
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
