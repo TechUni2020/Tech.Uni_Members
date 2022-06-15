@@ -23,7 +23,7 @@ export const Layout: VFC<Props> = (props) => {
         <Header {...headerProps} />
       </div>
       <div className="flex w-screen">
-        <aside className="bg-white w-60 sticky top-0">
+        <aside className="bg-white sticky top-0">
           <div className="flex items-center justify-center mt-10">
             {/* <a href="/">Application</a> */}
             <p>aaaa</p>
