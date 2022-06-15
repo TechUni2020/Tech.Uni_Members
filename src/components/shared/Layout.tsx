@@ -32,8 +32,8 @@ export const Layout: VFC<Props> = (props) => {
             <Menubar />
           </nav>
         </aside>
-        <div className="flex flex-col flex-grow">
-          <main className="w-full bg-gray-100 min-h-[83vh]">{children}</main>
+        <div className="flex-1 flex-col flex-grow">
+          <main className="bg-gray-100 min-h-[83vh]">{children}</main>
           <footer className="bg-gray-100">
             <div className="p-8">
               <div className="text-gray-600 text-center">
